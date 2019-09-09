@@ -1,0 +1,162 @@
+glm(formula = INS.1 ~ predmatrix[, !predictvar], family = binomial(link = "logit"), 
+    data = insurance_t.new)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.6761  -0.7892  -0.4882   0.8980   2.6394  
+
+Coefficients: (9 not defined because of singularities)
+                                      Estimate Std. Error
+(Intercept)                          -1.467098   0.848290
+predmatrix[, !predictvar]DDA.1       -1.709759   0.123351
+predmatrix[, !predictvar]CASHBK      -0.069855   0.243028
+predmatrix[, !predictvar]DIRDEP.1    -0.207047   0.071200
+predmatrix[, !predictvar]NSF.1        0.617248   0.186134
+predmatrix[, !predictvar]SAV.1       -1.187352   0.126893
+predmatrix[, !predictvar]ATM.1       -0.460731   0.119410
+predmatrix[, !predictvar]CD.1        -0.201897   0.225539
+predmatrix[, !predictvar]IRA.1        0.635087   0.331090
+predmatrix[, !predictvar]LOC.1       -0.454407   0.300524
+predmatrix[, !predictvar]INV.1        0.784955   0.211997
+predmatrix[, !predictvar]INV.NA             NA         NA
+predmatrix[, !predictvar]ILS.1       -0.392103   0.320831
+predmatrix[, !predictvar]MM.1         0.784772   0.102754
+predmatrix[, !predictvar]MMCRED       0.016166   0.110707
+predmatrix[, !predictvar]MTG.1       -0.398234   0.424228
+predmatrix[, !predictvar]CC.1         0.261773   0.099460
+predmatrix[, !predictvar]CC.NA              NA         NA
+predmatrix[, !predictvar]CCPURC       0.014098   0.068009
+predmatrix[, !predictvar]SDB.1        0.052924   0.089685
+predmatrix[, !predictvar]HMOWN.1     -0.004116   0.081729
+predmatrix[, !predictvar]HMOWN.NA    -0.555319   0.234700
+predmatrix[, !predictvar]MOVED.1     -0.239230   0.178666
+predmatrix[, !predictvar]INAREA.1    -0.039592   0.147091
+predmatrix[, !predictvar]BRANCH.B1   -0.170616   0.211380
+predmatrix[, !predictvar]BRANCH.B10  -0.066543   0.320615
+predmatrix[, !predictvar]BRANCH.B11  -0.041208   0.365852
+predmatrix[, !predictvar]BRANCH.B12   0.140641   0.279259
+predmatrix[, !predictvar]BRANCH.B13  -0.008578   0.273627
+predmatrix[, !predictvar]BRANCH.B14         NA         NA
+predmatrix[, !predictvar]BRANCH.B15         NA         NA
+predmatrix[, !predictvar]BRANCH.B16  -0.881515   0.241760
+predmatrix[, !predictvar]BRANCH.B17  -0.051067   0.255957
+predmatrix[, !predictvar]BRANCH.B18         NA         NA
+predmatrix[, !predictvar]BRANCH.B19         NA         NA
+predmatrix[, !predictvar]BRANCH.B2   -0.248393   0.204713
+predmatrix[, !predictvar]BRANCH.B3   -0.069574   0.211067
+predmatrix[, !predictvar]BRANCH.B4   -0.098198   0.200589
+predmatrix[, !predictvar]BRANCH.B5   -0.197081   0.210532
+predmatrix[, !predictvar]BRANCH.B6   -0.044506   0.225931
+predmatrix[, !predictvar]BRANCH.B7   -0.215944   0.226861
+predmatrix[, !predictvar]BRANCH.B8    0.040244   0.227961
+predmatrix[, !predictvar]BRANCH.B9          NA         NA
+predmatrix[, !predictvar]RES.R        0.130137   0.077363
+predmatrix[, !predictvar]RES.S        0.067315   0.065762
+predmatrix[, !predictvar]RES.U              NA         NA
+predmatrix[, !predictvar]DDABAL_Bin   0.305265   0.021794
+predmatrix[, !predictvar]ACCTAGE_Bin -0.093365   0.053804
+predmatrix[, !predictvar]DEPAMT_Bin   0.051158   0.049254
+predmatrix[, !predictvar]CHECKS_Bin  -0.197664   0.037874
+predmatrix[, !predictvar]NSFAMT_Bin  -0.361426   0.220951
+predmatrix[, !predictvar]PHONE_Bin   -0.076576   0.056399
+predmatrix[, !predictvar]TELLER_Bin   0.270725   0.047960
+predmatrix[, !predictvar]SAVBAL_Bin   0.491217   0.028151
+predmatrix[, !predictvar]ATMAMT_Bin   0.419603   0.093049
+predmatrix[, !predictvar]POS_Bin     -0.152034   0.145872
+predmatrix[, !predictvar]POSAMT_Bin   0.108178   0.150389
+predmatrix[, !predictvar]CDBAL_Bin    0.824216   0.154878
+predmatrix[, !predictvar]IRABAL_Bin  -0.150717   0.346795
+predmatrix[, !predictvar]LOCBAL_Bin   0.174286   0.172920
+predmatrix[, !predictvar]INVBAL_Bin  -0.244702   0.166793
+predmatrix[, !predictvar]ILSBAL_Bin  -0.008110   0.348680
+predmatrix[, !predictvar]MMBAL_Bin          NA         NA
+predmatrix[, !predictvar]MTGBAL_Bin  -0.103147   0.339619
+predmatrix[, !predictvar]CCBAL_Bin    0.026386   0.101695
+predmatrix[, !predictvar]INCOME_Bin  -0.362056   0.146322
+predmatrix[, !predictvar]LORES_Bin    0.116660   0.086905
+predmatrix[, !predictvar]HMVAL_Bin    0.089030   0.041508
+predmatrix[, !predictvar]AGE_Bin     -0.004481   0.049282
+predmatrix[, !predictvar]CRSCORE_Bin -0.037405   0.054768
+                                     z value Pr(>|z|)    
+(Intercept)                           -1.729 0.083724 .  
+predmatrix[, !predictvar]DDA.1       -13.861  < 2e-16 ***
+predmatrix[, !predictvar]CASHBK       -0.287 0.773777    
+predmatrix[, !predictvar]DIRDEP.1     -2.908 0.003638 ** 
+predmatrix[, !predictvar]NSF.1         3.316 0.000913 ***
+predmatrix[, !predictvar]SAV.1        -9.357  < 2e-16 ***
+predmatrix[, !predictvar]ATM.1        -3.858 0.000114 ***
+predmatrix[, !predictvar]CD.1         -0.895 0.370694    
+predmatrix[, !predictvar]IRA.1         1.918 0.055089 .  
+predmatrix[, !predictvar]LOC.1        -1.512 0.130522    
+predmatrix[, !predictvar]INV.1         3.703 0.000213 ***
+predmatrix[, !predictvar]INV.NA           NA       NA    
+predmatrix[, !predictvar]ILS.1        -1.222 0.221652    
+predmatrix[, !predictvar]MM.1          7.637 2.22e-14 ***
+predmatrix[, !predictvar]MMCRED        0.146 0.883901    
+predmatrix[, !predictvar]MTG.1        -0.939 0.347872    
+predmatrix[, !predictvar]CC.1          2.632 0.008490 ** 
+predmatrix[, !predictvar]CC.NA            NA       NA    
+predmatrix[, !predictvar]CCPURC        0.207 0.835780    
+predmatrix[, !predictvar]SDB.1         0.590 0.555118    
+predmatrix[, !predictvar]HMOWN.1      -0.050 0.959837    
+predmatrix[, !predictvar]HMOWN.NA     -2.366 0.017977 *  
+predmatrix[, !predictvar]MOVED.1      -1.339 0.180578    
+predmatrix[, !predictvar]INAREA.1     -0.269 0.787800    
+predmatrix[, !predictvar]BRANCH.B1    -0.807 0.419578    
+predmatrix[, !predictvar]BRANCH.B10   -0.208 0.835582    
+predmatrix[, !predictvar]BRANCH.B11   -0.113 0.910320    
+predmatrix[, !predictvar]BRANCH.B12    0.504 0.614528    
+predmatrix[, !predictvar]BRANCH.B13   -0.031 0.974990    
+predmatrix[, !predictvar]BRANCH.B14       NA       NA    
+predmatrix[, !predictvar]BRANCH.B15       NA       NA    
+predmatrix[, !predictvar]BRANCH.B16   -3.646 0.000266 ***
+predmatrix[, !predictvar]BRANCH.B17   -0.200 0.841860    
+predmatrix[, !predictvar]BRANCH.B18       NA       NA    
+predmatrix[, !predictvar]BRANCH.B19       NA       NA    
+predmatrix[, !predictvar]BRANCH.B2    -1.213 0.224986    
+predmatrix[, !predictvar]BRANCH.B3    -0.330 0.741679    
+predmatrix[, !predictvar]BRANCH.B4    -0.490 0.624453    
+predmatrix[, !predictvar]BRANCH.B5    -0.936 0.349215    
+predmatrix[, !predictvar]BRANCH.B6    -0.197 0.843834    
+predmatrix[, !predictvar]BRANCH.B7    -0.952 0.341157    
+predmatrix[, !predictvar]BRANCH.B8     0.177 0.859870    
+predmatrix[, !predictvar]BRANCH.B9        NA       NA    
+predmatrix[, !predictvar]RES.R         1.682 0.092539 .  
+predmatrix[, !predictvar]RES.S         1.024 0.306016    
+predmatrix[, !predictvar]RES.U            NA       NA    
+predmatrix[, !predictvar]DDABAL_Bin   14.007  < 2e-16 ***
+predmatrix[, !predictvar]ACCTAGE_Bin  -1.735 0.082691 .  
+predmatrix[, !predictvar]DEPAMT_Bin    1.039 0.298965    
+predmatrix[, !predictvar]CHECKS_Bin   -5.219 1.80e-07 ***
+predmatrix[, !predictvar]NSFAMT_Bin   -1.636 0.101887    
+predmatrix[, !predictvar]PHONE_Bin    -1.358 0.174543    
+predmatrix[, !predictvar]TELLER_Bin    5.645 1.65e-08 ***
+predmatrix[, !predictvar]SAVBAL_Bin   17.449  < 2e-16 ***
+predmatrix[, !predictvar]ATMAMT_Bin    4.509 6.50e-06 ***
+predmatrix[, !predictvar]POS_Bin      -1.042 0.297302    
+predmatrix[, !predictvar]POSAMT_Bin    0.719 0.471942    
+predmatrix[, !predictvar]CDBAL_Bin     5.322 1.03e-07 ***
+predmatrix[, !predictvar]IRABAL_Bin   -0.435 0.663852    
+predmatrix[, !predictvar]LOCBAL_Bin    1.008 0.313502    
+predmatrix[, !predictvar]INVBAL_Bin   -1.467 0.142349    
+predmatrix[, !predictvar]ILSBAL_Bin   -0.023 0.981444    
+predmatrix[, !predictvar]MMBAL_Bin        NA       NA    
+predmatrix[, !predictvar]MTGBAL_Bin   -0.304 0.761345    
+predmatrix[, !predictvar]CCBAL_Bin     0.259 0.795277    
+predmatrix[, !predictvar]INCOME_Bin   -2.474 0.013347 *  
+predmatrix[, !predictvar]LORES_Bin     1.342 0.179470    
+predmatrix[, !predictvar]HMVAL_Bin     2.145 0.031963 *  
+predmatrix[, !predictvar]AGE_Bin      -0.091 0.927556    
+predmatrix[, !predictvar]CRSCORE_Bin  -0.683 0.494615    
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 9668.5  on 7419  degrees of freedom
+Residual deviance: 7683.2  on 7359  degrees of freedom
+  (1075 observations deleted due to missingness)
+AIC: 7805.2
+
+Number of Fisher Scoring iterations: 4
