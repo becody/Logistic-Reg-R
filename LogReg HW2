@@ -1,0 +1,46 @@
+libname loghw2 "C:/Users/17046/Documents/MSA 20/Logistic Reg/Homework2_LR";
+
+*creating dummy variables for all the categorical variables in dataset;
+proc glmmod data=loghw2.insurance_t_bin outdesign=loghw2.dummy outparm=parms;
+	class DDA DIRDEP SAV ATM CD IRA LOC INV 
+		  ILS MM MTG CC SDB HMOWN MOVED INAREA INS BRANCH RES;
+	model INS = DDA DIRDEP SAV ATM CD IRA LOC INV 
+		  ILS MM MTG CC SDB HMOWN MOVED INAREA INS BRANCH RES;
+run;
+
+proc print data=loghw2.dummy; run;
+
+
+//*
+ing to run proc logistic on dummy dataset
+proc logistic data=loghw2.dummy;
+	class DDA(ref='0')
+		  DIRDEP(ref='0')
+		  SAV(ref='0')
+		  ATM(ref='0')
+		  CD(ref='0')
+		  IRA(ref='0')
+		  LOC(ref='0')
+		  INV(ref='0')
+		  ILS(ref='0')
+		  MM(ref='0')
+		  MTG(ref'0')
+		  CC(ref='0')
+		  SDB(ref='0')
+		  HMOWN(ref='0')
+		  MOVED(ref='0')
+		  INAREA(ref='0')
+		  BRANCH(ref='0')
+		  RES(ref='0') / param=ref;
+	model INS(event=1) = DDA DIRDEP SAV ATM CD IRA LOC INV ILS 
+						 MM MTG CC SDB HMOWN MOVED INAREA BRANCH
+						 RES / clodds=pl;
+run;
+quit;
+*/
+;
+
+proc logistic data=loghw2.dummy;
+	DummyVars: model INS(event='1') = COL1-COL29;
+	ods select ParameterEstimates;
+quit;
