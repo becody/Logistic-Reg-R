@@ -1,12 +1,11 @@
 #reading in data:
 library(haven)
 library(dplyr)
-install.packages("tidyverse")
-install.packages("dummies")
 library(dummies)
 library(tidyverse)
 library(forcats)
 library(Hmisc)
+library(glmulti)
 
 #read in dataset and create list of factors
 #list of  cat variables that contained missing values:
