@@ -43,10 +43,42 @@ impute(insurance_t$HMVAL_Bin)
 #checking levels of INV to make sure "M" category is there
 levels(insurance_t$INV)
 
-#creating a logit model with new data including M 
+#creating a logit model with new data to check for separation 
 logit.model.w <- glm(INS ~., data=insurance_t, family = binomial(link = "logit") )
 summary(logit.model.w)
 
+#best subsets
+glmulti.lm.out <- glmulti(INS ~.,
+                        data=insurance_t,
+                        level=1,
+                        method='g',
+                        crit="bic",
+                        confsetsize = 5,
+                        plotty=TRUE,
+                        fitfunction = "glm",
+                        family = binomial)
+#gives 5 best models
+glmulti.lm.out@formulas
+
+#show result for best model
+summary(glmulti.lm.out@objects[[1]])
+
+#creating all the different models
+
+full.model <- glm(INS ~., data=insurance_t,
+                  family=binomial(link = "logit"))
+
+empty.model <- glm(INS ~ 1, data=insurance_t,
+                   family= binomial(link = "logit"))
+
+
+#backwards model 
+back.model <- step(full.model, direction = "backward")
+
+#stepwise model
+step.model <- step(empty.model, scope=list(lower=formula(empty.model),
+                                           upper=formula(full.model)),
+                   direction = "both")
 
 
 
@@ -85,58 +117,5 @@ summary(logit.model.w)
 
 
 
-#create dummies for all factors in the data frame:
 
-insurance_t_new <- dummy.data.frame(df, sep = ".")
-names(insurance_t_new)
 
-#create separate matrix of predictors excluding reference dummies
-names(insurance_t_new)
-predictvar <- (names(insurance_t_new) %in% c("INS.1",
-                                             "INS.0",
-                                             "DDA.0",
-                                             "DIRDEP.0",
-                                             "NSF.0",
-                                             "SAV.0",
-                                             "ATM.0",
-                                             "CD.0",
-                                             "IRA.0",
-                                             "LOC.0",
-                                             "INV.0",
-                                             "ILS.0",
-                                             "MM.0",
-                                             "MTG.0",
-                                             "CC.0",
-                                             "SDB.0",
-                                             "HMOWN.0",
-                                             "MOVED.0",
-                                             "INAREA.0",
-                                             "BRANCH.19"))
-predmatrix <- as.matrix(insurance_t_new)
-
-#logistic regression model 
-logit.model.w <- glm(INS.1 ~ predmatrix[,!predictvar], data=insurance_t.new, family = binomial(link = "logit") )
-summary(logit.model.w)
-
-#try to exclude reference categoriese to get fuller picture 
-# of separation 
-
-#Problematic separation categories:
-# Branch 14, 15, 18, and 19  RES U  MMBAL Bin 
-table(insurance_t.new$BRANCH.B14)
-table(insurance_t.new$BRANCH.B15)
-table(insurance_t.new$BRANCH.B16)
-table(insurance_t.new$BRANCH.B18)
-table(insurance_t.new$BRANCH.B19)
-table(insurance_t.new$RES.U)
-table(insurance_t.new$RES.R)
-table(insurance_t.new$RES.R)
-table(insurance_t.new$RES.U)
-
-#Which to collapse?? 
-
-#combining categories template: 
-df$category <- as.character(df$category)
-df$category[which(df$category > #)] <- "4+"
-                    
-table(df$category, df$target)
